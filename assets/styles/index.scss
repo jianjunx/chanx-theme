@@ -1,0 +1,17 @@
+@import './common.scss';
+.home {
+  background-color: $bg-white;
+}
+.header {
+  height: 60px;
+  background-color: $bg-white;
+
+  &-logo {
+    width: $spacer-11 * 2;
+
+    margin: 0 100px;
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import 'node_modules/@primer/css/utilities/index.scss';
+$left-bar: 170px;
+$right-bar: 255px;
+$container: 1140px;
+
+body {
+  margin: 0;
+  background-color: $bg-gray;
+  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC',
+    'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
+  font-size: 14px;
+  line-height: 1.42858;
+  color: $text-black;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  width: $container;
+  margin: 0 auto;
+}
