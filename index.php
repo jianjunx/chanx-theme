@@ -2,8 +2,8 @@
 /**
  * 这是 Typecho 0.9 系统的一套默认皮肤
  * 
- * @package Typecho Replica Theme 
- * @author Typecho Team
+ * @package Chanx 
+ * @author Jayken
  * @version 1.2
  * @link http://typecho.org
  */
