@@ -19,13 +19,13 @@ function resolve(p) {
 function css() {
   return (
     src([
-      './views/assets/styles/index.scss',
-      './views/assets/styles/markdown.scss'
+      './assets/styles/index.scss',
+      './assets/styles/markdown.scss'
     ])
       .pipe(sass().on('error', sass.logError))
       // .pipe(concat('app.min.css'))
-      .pipe(minifyCSS())
-      .pipe(dest('public/css'))
+      .pipe(csso())
+      .pipe(dest(resolve('assets/css/')))
   )
 }
 function codeStyle() {
@@ -35,6 +35,7 @@ function codeStyle() {
 }
 function js() {
   return src('assets/js/*.js')
+    .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(dest(resolve('assets/js/')))
 }
@@ -44,16 +45,17 @@ function img() {
     .pipe(imagemin())
     .pipe(dest(resolve('assets/img/')))
 }
-const htmlminOption = {
-  removeComments: true, //清除HTML注释
-  collapseWhitespace: true, //压缩HTML
-  collapseBooleanAttributes: true, //省略布尔属性的值 <input checked="true"/> ==> <input />
-  removeEmptyAttributes: true, //删除所有空格作属性值 <input id="" /> ==> <input />
-  removeScriptTypeAttributes: true, //删除<script>的type="text/javascript"
-  removeStyleLinkTypeAttributes: true, //删除<style>和<link>的type="text/css"
-  minifyJS: true, //压缩页面JS
-  minifyCSS: true //压缩页面CSS
-}
+// const htmlminOption = {
+//   removeComments: true, //清除HTML注释
+//   collapseWhitespace: true, //压缩HTML
+//   collapseBooleanAttributes: true, //省略布尔属性的值 <input checked="true"/> ==> <input />
+//   removeEmptyAttributes: true, //删除所有空格作属性值 <input id="" /> ==> <input />
+//   removeScriptTypeAttributes: true, //删除<script>的type="text/javascript"
+//   removeStyleLinkTypeAttributes: true, //删除<style>和<link>的type="text/css"
+//   minifyJS: true, //压缩页面JS
+//   minifyCSS: true //压缩页面CSS
+// }
+
 function php() {
   return (
     src('./*.php')
@@ -66,7 +68,7 @@ function copy() {
 }
 
 if (MODE === 'dev') {
-  watch('./assets/css/*.scss', css)
+  watch('./assets/styles/*.scss', css)
   watch('./assets/js/*.js', js)
   watch('./*.php', php)
 }
