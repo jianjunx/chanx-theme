@@ -11,4 +11,6 @@
 
 <?php $this->footer(); ?>
 </body>
+<script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="<?php $this->options->themeUrl('assets/js/app.min.js'); ?>"></script>
 </html>
