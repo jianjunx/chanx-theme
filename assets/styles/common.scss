@@ -1,7 +1,8 @@
-@import "node_modules/@primer/css/utilities/index.scss";
+@import 'node_modules/@primer/css/utilities/index.scss';
 $left-bar: 170px;
 $right-bar: 255px;
 $container: 1140px;
+$theme-color: $purple;
 
 body {
   margin: 0;
@@ -10,10 +11,31 @@ body {
     'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
   font-size: 14px;
   line-height: 1.42858;
-  color: $text-black;
+  color: $text-gray-dark;
   -webkit-font-smoothing: antialiased;
 }
 .container {
   width: $container;
   margin: 0 auto;
+}
+table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+a {
+  text-decoration: none;
+  color: $text-gray-dark;
+  &:hover {
+    text-decoration: underline;
+    // color: $theme-color;
+  }
+}
+.no-underline {
+  &:hover {
+    text-decoration: underline;
+    // color: $theme-color;
+  }
+}
+.hide-text {
+  text-indent: -9999px;
 }

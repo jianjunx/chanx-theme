@@ -1,16 +1,46 @@
-@import "./common.scss";
+@import './common.scss';
 .home {
+  padding: $spacer-3;
   background-color: $bg-white;
+  &-bar{
+    width: $left-bar;
+  }
+  &-list {
+    flex: 1;
+    padding: 0 $spacer-4;
+  }
+  &-sidebar {
+    width: $right-bar;
+  }
 }
 .header {
   height: 60px;
   background-color: $bg-white;
-
+  margin-bottom: 10px;
   &-logo {
     width: $left-bar;
-    margin: 0 100px;
+    margin: 0;
+    padding-right: 80px;
+    box-sizing: border-box;
     img {
       width: 100%;
+    }
+  }
+  &-wrap {
+    line-height: 60px;
+    
+  }
+}
+.p-item {
+  &-content {
+    color: $text-gray;
+  }
+  &-meta {
+    list-style: none;
+    padding-left: 0;
+    color: $text-gray;
+    li {
+      margin-right: $spacer-3;
     }
   }
 }
