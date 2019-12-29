@@ -1,4 +1,5 @@
 @import 'node_modules/@primer/css/utilities/index.scss';
+@import 'node_modules/@primer/css/dropdown/index.scss';
 $left-bar: 170px;
 $right-bar: 255px;
 $container: 1140px;
@@ -16,6 +17,10 @@ body {
 }
 .container {
   width: $container;
+  margin: 0 auto;
+}
+.content {
+  width: $container - $left-bar;
   margin: 0 auto;
 }
 table {
@@ -38,4 +43,15 @@ a {
 }
 .hide-text {
   text-indent: -9999px;
+}
+button {
+  transition: all 0.2s;
+  outline: none;
+  &:active {
+    border: 0;
+    outline: none;
+  }
+}
+summary:focus {
+  outline: none;
 }

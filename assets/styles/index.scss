@@ -2,7 +2,7 @@
 .home {
   padding: $spacer-3;
   background-color: $bg-white;
-  &-bar{
+  &-bar {
     width: $left-bar;
   }
   &-list {
@@ -28,7 +28,68 @@
   }
   &-wrap {
     line-height: 60px;
-    
+    justify-content: space-between;
+  }
+  &-nav {
+    font-size: 16px;
+  }
+  &-search {
+    position: relative;
+    &_input {
+      outline: none;
+      width: 240px;
+      height: 32px;
+      border-radius: 4px;
+      padding: $spacer-2;
+      padding-right: 26px;
+      box-sizing: border-box;
+      border: 1px solid $text-gray;
+      &:focus {
+        border-color: $theme-color;
+      }
+    }
+    &_submit {
+      position: absolute;
+      right: 4px;
+      top: 18px;
+      border: 0;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      background: url(../img/icon-search.png) no-repeat center center;
+      direction: ltr;
+      text-indent: -9999em;
+      cursor: pointer;
+    }
+  }
+  &-user {
+    &_btn {
+      border: 0;
+      background-color: $theme-color;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 2px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba($theme-color, 0.8);
+      }
+    }
+    &_summary{
+      cursor: pointer;
+    }
+    &_drop {
+      padding-left: 0;
+      li {
+        line-height: 26px;
+        
+      }
+      .dropdown-item:hover {
+        background-color: $theme-color;
+      }
+    }
+  }
+  .current {
+    color: $theme-color;
   }
 }
 .p-item {
@@ -43,4 +104,8 @@
       margin-right: $spacer-3;
     }
   }
+}
+.post {
+  background-color: #fff;
+  padding: $spacer-4;
 }

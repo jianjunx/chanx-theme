@@ -18,6 +18,7 @@
 ), '', ' - ');?><?php $this->options->title();?></title>
 
   <!-- 使用url函数转换相关路径 -->
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1492748_49lgouc201n.css">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/markdown.css');?>">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/index.css');?>">
 
@@ -39,28 +40,49 @@
     <div class="container header-wrap d-flex">
       <div class="d-flex">
         <h1 class="header-logo">
-         <a href="<?php $this->options->siteUrl();?>">
-            <img src="<?php $this->options->themeUrl('assets/img/logo.png')?>" alt="<?php $this->options->title()?> - <?php $this->options->description()?>">
-         </a>
+          <a href="<?php $this->options->siteUrl();?>">
+            <img src="<?php $this->options->themeUrl('assets/img/logo.png')?>"
+              alt="<?php $this->options->title()?> - <?php $this->options->description()?>">
+          </a>
         </h1>
-        <div class="col-mb-12">
-          <nav id="nav-menu" class="clearfix" role="navigation">
-            <a<?php if ($this->is('index')): ?> class="current" <?php endif;?>
-              href="<?php $this->options->siteUrl();?>"><?php _e('首页');?></a>
-              <?php $this->widget('Widget_Contents_Page_List')->to($pages);?>
-              <?php while ($pages->next()): ?>
-              <a<?php if ($this->is('page', $pages->slug)): ?> class="current" <?php endif;?>
-                href="<?php $pages->permalink();?>" title="<?php $pages->title();?>"><?php $pages->title();?></a>
-                <?php endwhile;?>
-          </nav>
-        </div>
+        <nav class="header-nav" role="navigation">
+          <a class="m-2 <?php if ($this->is('index')): ?>current<?php endif;?>"
+            href="<?php $this->options->siteUrl();?>">
+            <?php _e('首页');?></a>
+          <?php $this->widget('Widget_Contents_Page_List')->to($pages);?>
+          <?php while ($pages->next()): ?>
+          <a class="m-2 <?php if ($this->is('page', $pages->slug)): ?>current<?php endif;?>"
+            href="<?php $pages->permalink();?>" title="<?php $pages->title();?>"><?php $pages->title();?></a>
+          <?php endwhile;?>
+        </nav>
       </div>
-      <div class="site-search col-3 kit-hidden-tb">
-        <form id="search" method="post" action="<?php $this->options->siteUrl();?>" role="search">
+      <div class="d-flex">
+        <form class="header-search mr-3" method="post" action="<?php $this->options->siteUrl();?>" role="search">
           <label for="s" class="sr-only"><?php _e('搜索关键字');?></label>
-          <input type="text" id="s" name="s" class="text" placeholder="<?php _e('输入关键字搜索');?>" />
-          <button type="submit" class="submit"><?php _e('搜索');?></button>
+          <input type="text" id="s" name="s" class="header-search_input" placeholder="<?php _e('输入关键字搜索');?>" />
+          <button type="submit" class="header-search_submit"><?php _e('搜索');?></button>
         </form>
+        <div class="header-user">
+          <?php if($this->user->hasLogin()): ?>
+            <div style="margin-bottom: 100px" class="d-flex flex-justify-end">
+                <details class="dropdown details-reset details-overlay d-inline-block">
+                <summary class="header-user_summary" aria-haspopup="true">
+                    <?php $this->user->screenName(); ?>
+                    <div class="dropdown-caret"></div>
+                </summary>
+
+                <ul class="header-user_drop dropdown-menu dropdown-menu-sw">
+                    <li><a class="dropdown-item" href="<?php $this->options->adminUrl(); ?>"><?php _e('进入后台'); ?></a></li>
+                    <li><a class="dropdown-item" href="<?php $this->options->logoutUrl(); ?>"><?php _e('退出登录'); ?></a></li>
+                </ul>
+                </details>
+            </div>
+          <?php else: ?>
+          <a href="<?php $this->options->adminUrl('login.php'); ?>">
+            <button class="header-user_btn">登录</button>
+          </a>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </header>
