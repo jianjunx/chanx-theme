@@ -14,7 +14,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 <div class="container home d-flex">
 	<div class="home-bar">
-		<li>ajkshdkjhsd</li>
+		<ul>
+			<li class="current"><a href="<?php $this->options->siteUrl();?>">最新内容</a></li>
+		</ul>
+
+		<?php $this->widget('Widget_Metas_Category_List')->listCategories('wrapClass=widget-list'); ?>
 	</div>
 	<div class="home-list" role="main">
 		<?php while($this->next()): ?>

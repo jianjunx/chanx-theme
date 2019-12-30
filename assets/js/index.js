@@ -1,4 +1,4 @@
-hljs.initHighlightingOnLoad();
+hljs.initHighlightingOnLoad()
 // (function() {
 //   var userInfoDrop = document.querySelector(".user-info-drop");
 //   var userInfoTitle = document.querySelector(".user-info_username");
@@ -36,3 +36,12 @@ hljs.initHighlightingOnLoad();
 //     }
 //   })
 // })();
+;(function() {
+  const barLinks = document.querySelectorAll('.home-bar a')
+  for (let i = 0, len = barLinks.length; i < len; i++) {
+    const ele = barLinks[i]
+    if(ele.href) {
+
+    }
+  }
+})()

@@ -1,11 +1,11 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <article itemscope itemtype="http://schema.org/BlogPosting" class="p-item">
 	<a class="no-underline" href="<?php $this->permalink() ?>">
-    <h3 class="p-item-title" itemprop="name headline">
+    <h2 class="p-item-title" itemprop="name headline">
     <?php $this->title() ?>
-    </h3>
+    </h2>
     <div class="p-item-content" itemprop="articleBody">
-    <?php $this->excerpt(100, '...') ?>
+    <?php $this->excerpt(230, '...') ?>
     </div>
     <ul class="p-item-meta d-flex">
       <li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>

@@ -4,6 +4,30 @@
   background-color: $bg-white;
   &-bar {
     width: $left-bar;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      line-height: 34px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    li {
+      transition: all 0.2s;
+      border-radius: 4px;
+      padding-left: $spacer-2;
+      &:hover {
+        background-color: rgba($theme-color, 0.3);
+      }
+      &.current {
+        background-color: $theme-color;
+        a {
+          color: #fff;
+        }
+      }
+    }
   }
   &-list {
     flex: 1;
@@ -23,6 +47,7 @@
     padding-right: 80px;
     box-sizing: border-box;
     img {
+      margin-top: 10px;
       width: 100%;
     }
   }
@@ -74,14 +99,13 @@
         background-color: rgba($theme-color, 0.8);
       }
     }
-    &_summary{
+    &_summary {
       cursor: pointer;
     }
     &_drop {
       padding-left: 0;
       li {
         line-height: 26px;
-        
       }
       .dropdown-item:hover {
         background-color: $theme-color;
@@ -95,6 +119,14 @@
 .p-item {
   &-content {
     color: $text-gray;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    // font-size: 13px;
   }
   &-meta {
     list-style: none;
