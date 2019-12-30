@@ -40,8 +40,8 @@ hljs.initHighlightingOnLoad()
   const barLinks = document.querySelectorAll('.home-bar a')
   for (let i = 0, len = barLinks.length; i < len; i++) {
     const ele = barLinks[i]
-    if(ele.href) {
-
+    if(ele.href == location.href) {
+      ele.parentElement.classList.add('current')
     }
   }
 })()
